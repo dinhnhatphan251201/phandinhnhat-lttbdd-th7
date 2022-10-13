@@ -73,18 +73,18 @@ const List = () => {
             .finally(function () {});
     };
 
-    if (isLoading == true) {
-        return (
-            <View
-                style={{
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
-                <ActivityIndicator size="large" color="#000" />
-            </View>
-        );
-    }
+    // if (isLoading == true) {
+    //     return (
+    //         <View
+    //             style={{
+    //                 justifyContent: "center",
+    //                 alignItems: "center",
+    //             }}
+    //         >
+    //             <ActivityIndicator size="large" color="#000" />
+    //         </View>
+    //     );
+    // }
 
     return (
         <View style={styles.wrapper}>
@@ -98,6 +98,16 @@ const List = () => {
                 />
                 <Button title="them" onPress={handleAddItem} />
             </View>
+            {isLoading && (
+                <View
+                    style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <ActivityIndicator size="large" color="#000" />
+                </View>
+            )}
             <View>
                 <ScrollView>
                     {/* <FlatList

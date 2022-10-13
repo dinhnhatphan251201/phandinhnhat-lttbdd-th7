@@ -2,7 +2,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ListItem } from "@react-native-material/core";
 import axios from "axios";
 import React from "react";
-import { Text, ToastAndroid, TouchableOpacity, View } from "react-native";
+import {
+    Image,
+    Text,
+    ToastAndroid,
+    TouchableOpacity,
+    View,
+} from "react-native";
 
 const Item = ({ item, handleRemoveItem }) => {
     return (
@@ -13,7 +19,21 @@ const Item = ({ item, handleRemoveItem }) => {
                 paddingVertical: 12,
             }}
         >
-            <Text style={{ width: 350 }}>{item.name}</Text>
+            <View
+                style={{
+                    width: 350,
+                    flexDirection: "row",
+                }}
+            >
+                <Image
+                    style={{ width: 50, height: 50 }}
+                    source={{
+                        uri: "https://res.cloudinary.com/dxcxnowht/image/upload/v1665627817/cld-sample-5.jpg",
+                    }}
+                />
+                <Text style={{ width: 300, marginLeft: 5 }}>{item.name}</Text>
+            </View>
+
             <TouchableOpacity onPress={() => handleRemoveItem(item.id)}>
                 <MaterialCommunityIcons name="close" size={24} color="black" />
             </TouchableOpacity>
